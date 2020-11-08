@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/a4f88206-6561-462b-8dc2-67ba341141e2/resourceGroups/SimpleCrud/providers/Microsoft.Web/sites/simpleCrud-react",
+    "appService.deploySubpath": "."
+}
