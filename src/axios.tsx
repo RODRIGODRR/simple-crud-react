@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://localhost:5001/"
+  baseURL: process.env.REACT_APP_URL_BACKEND
 });
 
 instance.defaults.headers.common["Authorization"] =
