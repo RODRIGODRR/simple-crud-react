@@ -11,8 +11,7 @@ const DatabaseRadio = () => {
     }
 
     return (
-        <div>
-            <h5>Escolha o banco de dados:</h5>
+        <div>            
             <label className="radio-inline p-3"><input type="radio" name="mssql" 
             checked={databases.find(e => e.name === "mssql")?.selected} onChange={(event) => handleDatabaseSelected(event)} />MSSQL</label>
             <label className="radio-inline"><input type="radio" name="mongo" 

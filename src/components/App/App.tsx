@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Context from '../../contexts/Context';
 import { initializePAAS } from '../../services/simpleCrudService';
 import CreateForm from '../CreateForm';
@@ -12,6 +12,8 @@ import './App.css';
 
 const App = () => {
 
+  const [flagPaasInitialized, setFlagPaasInitialized] = useState(false);
+
   const handleInfo = () => {
     alert('A idéia aqui foi criar um exemplo de crud simples porém funcional. Utilizando ReactJS no frontend e .Net core no backend, trabalhando em dois bancos de dados distintos (MSSQL e MongoDB). [apenas para testes/exemplos/estudos gerais etc]. :) ');
   }
@@ -20,8 +22,8 @@ const App = () => {
   // no momento em que a aplicação inicializa (apenas para evitar um certo "delay" p/ 
   // inicializar durante a primeira utilização do sistema)  
   const initialize = async () => {
-    try { await initializePAAS("mssql"); } catch (error) { }
-    try { await initializePAAS("mongo"); } catch (error) { }    
+    try { await initializePAAS("mssql"); setFlagPaasInitialized(true); } catch (error) { }
+    try { await initializePAAS("mongo"); setFlagPaasInitialized(true); } catch (error) { }
   }
 
   // eslint-disable-next-line no-lone-blocks
@@ -40,10 +42,16 @@ const App = () => {
           <div style={{ textAlign: "right" }}>
             <button type="button" className="btn button-transparent animate__animated animate__pulse animate__infinite" onClick={handleInfo}>
               <div style={{ color: "dodgerblue" }}><i className="fa fa-info-circle fa-lg"></i></div>
-              
+
             </button>
           </div>
-          <DatabaseRadio />
+          <h5>Escolha o banco de dados:</h5>
+          <div style={{ paddingLeft: "10%" }} className={flagPaasInitialized ? "d-none" : ""}>
+            <span style={{ color: "dodgerblue" }}><i className="fa fa-circle-o-notch fa-spin"></i></span>
+          </div>
+          <div className={flagPaasInitialized ? "" : "d-none"}>
+            <DatabaseRadio />
+          </div>
         </div>
         <br />
         <div className="row">
