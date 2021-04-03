@@ -15,8 +15,7 @@ const App = () => {
   const [flagPaasInitialized, setFlagPaasInitialized] = useState(false);
 
   const handleInfo = () => {
-    // alert('A idéia aqui foi criar um exemplo de crud simples porém funcional. Utilizando ReactJS no frontend e .Net core no backend, trabalhando em dois bancos de dados distintos (MSSQL e MongoDB). [apenas para testes/exemplos/estudos gerais etc]. :) ');
-    alert('Salve');
+    alert('A idéia aqui foi criar um exemplo de crud simples porém funcional. Utilizando ReactJS no frontend e .Net core no backend, trabalhando em dois bancos de dados distintos (MSSQL e MongoDB). [apenas para testes/exemplos/estudos gerais etc]. :) ');
   }
 
   // esse item serve apenas para inicializar as instâncias PAAS de banco de dados
@@ -25,7 +24,7 @@ const App = () => {
   const initialize = async () => {
     try {
       await Promise.all([initializePAAS("mssql"), initializePAAS("mongo")]);
-      
+
       setFlagPaasInitialized(true);
     } catch (error) { }
   }
