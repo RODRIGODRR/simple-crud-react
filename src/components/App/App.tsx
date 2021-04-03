@@ -22,8 +22,11 @@ const App = () => {
   // no momento em que a aplicação inicializa (apenas para evitar um certo "delay" p/ 
   // inicializar durante a primeira utilização do sistema)  
   const initialize = async () => {
-    try { await initializePAAS("mssql"); setFlagPaasInitialized(true); } catch (error) { }
-    try { await initializePAAS("mongo"); setFlagPaasInitialized(true); } catch (error) { }
+    try {
+      await Promise.all([initializePAAS("mssql"), initializePAAS("mongo")]);
+      
+      setFlagPaasInitialized(true);
+    } catch (error) { }
   }
 
   // eslint-disable-next-line no-lone-blocks
