@@ -15,6 +15,7 @@ const App = () => {
   const [flagPaasInitialized, setFlagPaasInitialized] = useState(false);
 
   const handleInfo = () => {
+    teste quebrar o build
     alert('A idéia aqui foi criar um exemplo de crud simples porém funcional. Utilizando ReactJS no frontend e .Net core no backend, trabalhando em dois bancos de dados distintos (MSSQL e MongoDB). [apenas para testes/exemplos/estudos gerais etc]. :) ');
   }
 
